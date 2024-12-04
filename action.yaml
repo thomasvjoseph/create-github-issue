@@ -3,24 +3,24 @@ description: 'This action creates an issue based on user inputs'
 author: 'Thomas Joseph'
 
 inputs:
-  GITHUB_TOKEN: 
+  GITHUB_TOKEN:
+    description: "Token for authenticating GitHub API"
     required: true
-    description: Token of the user that creates the issue
-  INPUT_TITLE: 
+  INPUT_TITLE:
+    description: "Title of the issue"
     required: true
-    description: Title of the issue
+  INPUT_BODY:
+    description: "Body of the issue"
+    required: false
+    default: ""
   INPUT_LABELS:
+    description: "Comma-separated list of labels"
     required: false
-    default: ''
-    description: Labels of the issue
-  INPUT_ASSIGNEES: 
+    default: ""
+  INPUT_ASSIGNEES:
+    description: "Comma-separated list of assignees"
     required: false
-    description: Assignees of the issue
-    default: '' 
-  INPUT_BODY: 
-    required: false
-    default: ''
-    description: Body of the issue
+    default: ""
 
 runs:
   using: 'docker'

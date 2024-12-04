@@ -2,40 +2,37 @@ import os
 from github import Github
 
 # Extracting all the input from environment variables
-title = os.getenv('INPUT_TITLE')
-token = os.getenv('GITHUB_TOKEN')  # Using the automatically provided GITHUB_TOKEN
+title = os.getenv('INPUT_TITLE')  # Ensure this matches the input name in `action.yml`
+token = os.getenv('GITHUB_TOKEN')  # Token automatically provided by GitHub Actions
 labels = os.getenv('INPUT_LABELS')
 assignees = os.getenv('INPUT_ASSIGNEES')
 body = os.getenv('INPUT_BODY')
 
-# Check if title is provided
 if not title:
     raise ValueError("Title is missing. Please provide a valid title for the issue.")
 
 # If labels are provided, split by ',' to make it a list
-if labels and labels != '':
-    labels = labels.split(',')
+if labels:
+    labels = [label.strip() for label in labels.split(',') if label.strip()]
 else:
-    labels = []  # Default to an empty list if no labels
+    labels = []
 
 # Validate and filter assignees
 if assignees:
-    valid_assignees = [user.strip() for user in assignees.split(',') if user.strip()]
+    assignees = [assignee.strip() for assignee in assignees.split(',') if assignee.strip()]
 else:
-    valid_assignees = []  # Default to an empty list if no assignees
+    assignees = []
 
 # Use the GitHub token to authenticate
 github = Github(token)
-
-# GITHUB_REPOSITORY is automatically available in GitHub Actions
-repo = github.get_repo(os.getenv('GITHUB_REPOSITORY'))
+repo = github.get_repo(os.getenv('GITHUB_REPOSITORY'))  # Format: "owner/repo"
 
 # Create the issue
 try:
     issue = repo.create_issue(
         title=title,
         body=body,
-        assignees=valid_assignees,
+        assignees=assignees,
         labels=labels
     )
     print(f"Issue created successfully: {issue.html_url}")

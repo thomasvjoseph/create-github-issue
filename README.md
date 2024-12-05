@@ -9,13 +9,14 @@ This GitHub Action allows you to programmatically create issues in a GitHub repo
 	•	Fully customizable using input parameters.
 
 ## Inputs
+
 | Input              | Description                                  | Required | Default                |
-|--------------------|----------------------------------------------------------------------------------|
-| `GITHUB_TOKEN`     | Token for authenticating GitHub API.         | yes      | `secrets.GITHUB_TOKEN` |
-| `INPUT_TITLE`      | Title of the issue.                          | No       | N/A                    |
-| `INPUT_BODY`       | Body of the issue.                           | No       | N/A                    |
-| `INPUT_LABELS`     | Comma-separated list of labels.              | No       | N/A                    |
-| `INPUT_ASSIGNEES`  | Comma-separated list of assignees.           | No       | N/A                    |
+|--------------------|----------------------------------------------|----------|------------------------|
+| `GITHUB_TOKEN`     | Token for authenticating GitHub API.         | Yes      | `secrets.GITHUB_TOKEN` |
+| `INPUT_TITLE`      | Title of the issue.                          | Yes      | N/A                    |
+| `INPUT_BODY`       | Body of the issue.                           | No       | ""                     |
+| `INPUT_LABELS`     | Comma-separated list of labels.              | No       | ""                     |
+| `INPUT_ASSIGNEES`  | Comma-separated list of assignees.           | No       | ""                     |
 
 
 ## Usage

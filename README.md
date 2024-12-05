@@ -9,7 +9,6 @@ This GitHub Action allows you to programmatically create issues in a GitHub repo
 	•	Fully customizable using input parameters.
 
 ## Inputs
-
 | Input             | Description                        | Required | Default                |
 |-------------------|------------------------------------|----------|------------------------|
 | `GITHUB_TOKEN`    | Token for authenticating GitHub API. | Yes      | `secrets.GITHUB_TOKEN` |

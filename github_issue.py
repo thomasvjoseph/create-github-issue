@@ -1,9 +1,8 @@
 import os
 from github import Github
 
-# Extracting all the input from environment variables
-title = os.getenv('INPUT_TITLE')  # Ensure this matches the input name in `action.yml`
-token = os.getenv('GITHUB_TOKEN')  # Token automatically provided by GitHub Actions
+title = os.getenv('INPUT_TITLE') 
+token = os.getenv('GITHUB_TOKEN')
 labels = os.getenv('INPUT_LABELS')
 assignees = os.getenv('INPUT_ASSIGNEES')
 body = os.getenv('INPUT_BODY')

@@ -25,8 +25,13 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.GITHUB_TOKEN }}
+    - ${{ inputs.INPUT_TITLE }}
+    - ${{ inputs.INPUT_BODY }}
+    - ${{ inputs.INPUT_LABELS }}
+    - ${{ inputs.INPUT_ASSIGNEES }}
 
-# for publishing purposes
-branding: #generates a logo for our action
-  icon: arrow-down #icon of the image
-  color: green # background color of the logo of our action
+branding:
+  icon: 'activity'
+  color: green

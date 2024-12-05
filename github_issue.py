@@ -39,3 +39,7 @@ try:
 except Exception as e:
     print(f"Error creating issue: {e}")
     raise
+
+print("Environment Variables:")
+for key, value in os.environ.items():
+    print(f"{key}: {value}")
